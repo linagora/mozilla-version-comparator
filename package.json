@@ -1,0 +1,26 @@
+{
+  "name": "mozilla-version-comparator",
+  "version": "1.0.0",
+  "author": "Linagora",
+  "description": "The mozilla-version-comparator is a javascript implementation of the versioning policy used in mozilla softwares. See https://developer.mozilla.org/en-US/docs/Toolkit_version_format for explanation",
+  "engines": {
+    "node": ">=0.10"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec --ui tdd mozilla-version-comparator-test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/linagora/mvc.git"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*"
+  },
+  "keywords": [
+    "mozilla",
+    "version",
+    "comparator",
+    "compare"
+  ]
+}
