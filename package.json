@@ -1,6 +1,6 @@
 {
   "name": "mozilla-version-comparator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Linagora",
   "description": "The mozilla-version-comparator is a javascript implementation of the versioning policy used in mozilla softwares. See https://developer.mozilla.org/en-US/docs/Toolkit_version_format for explanation",
   "engines": {
