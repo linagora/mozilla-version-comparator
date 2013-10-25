@@ -6,6 +6,7 @@
   "engines": {
     "node": ">=0.10"
   },
+  "main": "./mozilla-version-comparator.js",
   "scripts": {
     "test": "mocha --reporter spec --ui tdd mozilla-version-comparator-test.js"
   },
