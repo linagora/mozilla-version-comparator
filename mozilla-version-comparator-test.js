@@ -7,7 +7,7 @@ suite('The mozilla-version-comparator', function() {
   suite('verifies', function() {
 
     //  1.-1
-    //  < 1 == 1. == 1.0 == 1.0.0
+    //  < 1 == 1. == 1.0 == 1.0.0 == 1.+0 == 1.-0
     //  < 1.1a < 1.1aa < 1.1ab < 1.1b < 1.1c
     //  < 1.1pre == 1.1pre0 == 1.0+
     //  < 1.1pre1a < 1.1pre1aa < 1.1pre1b < 1.1pre1
@@ -33,6 +33,14 @@ suite('The mozilla-version-comparator', function() {
 
     test('1.0 == 1.0.0', function() {
       expect(mozCompare('1.0', '1.0.0')).to.equal(0);
+    });
+
+    test('1.0 == 1.-0', function() {
+      expect(mozCompare('1.0', '1.-0')).to.equal(0);
+    });
+
+    test('1.0 == 1.+0', function() {
+      expect(mozCompare('1.0', '1.+0')).to.equal(0);
     });
 
     test('1.0.0 < 1.1a', function() {
@@ -130,6 +138,10 @@ suite('The mozilla-version-comparator', function() {
     test('1.001.100 < 1.01.10', function() {
       expect(mozCompare('1.001.100', '1.01.10')).to.equal(-1);
     });
+
+    test('1.0.0a < 1.0.b', function() {
+      expect(mozCompare('1.0.0a', '1.0.b')).to.equal(-1);
+    });
   });
 
   suite('is reflexive', function() {
@@ -148,6 +160,14 @@ suite('The mozilla-version-comparator', function() {
 
     test('1.0.0 == 1.0', function() {
       expect(mozCompare('1.0.0', '1.0')).to.equal(0);
+    });
+
+    test('1.-0 == 1.0', function() {
+      expect(mozCompare('1.-0', '1.0')).to.equal(0);
+    });
+
+    test('1.+0 == 1.0', function() {
+      expect(mozCompare('1.+0', '1.0')).to.equal(0);
     });
 
     test('1.1a > 1.0.0', function() {
@@ -244,6 +264,10 @@ suite('The mozilla-version-comparator', function() {
 
     test('1.01.10 > 1.001.100', function() {
       expect(mozCompare('1.01.10', '1.001.100')).to.equal(1);
+    });
+
+    test('1.0.b > 1.0.0a', function() {
+      expect(mozCompare('1.0.b', '1.0.0a')).to.equal(1);
     });
   });
 });
