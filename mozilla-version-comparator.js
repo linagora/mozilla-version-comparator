@@ -14,6 +14,8 @@ var strpbrk = function(string, chars) {
   return -1;
 };
 
+var versionPartWithNumberRE = /^([-+]?[0-9]+)/;
+
 var parseVersionParts = function(versionPart) {
   var result = {
     numberA: 0,
@@ -29,6 +31,9 @@ var parseVersionParts = function(versionPart) {
     result.stringB = '';
     return result;
   } else {
+    if (versionPart.match(versionPartWithNumberRE) === null) {
+      versionPart = '0' + versionPart;
+    }
     result.numberA = parseInt(versionPart, 10);
     result.stringB = versionPart.substr(result.numberA.toString().length);
   }
